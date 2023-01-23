@@ -51,7 +51,8 @@ li a:hover{
     position: absolute ;
 
     font-size: 200px;
-    color: #C500A3
+    color: #C500A3;
+    top: 80px; left: 190px;
 }
 
 .brown{
@@ -87,4 +88,35 @@ li a:hover{
     overflow: hidden;
     width: 15%;
     margin-bottom: -1%;
+}
+
+.brazilTitle{
+    position: absolute ;
+    font-size: 200px;
+    color:green ; 
+    position: relative; 
+    font-size: 100px ; 
+    margin-top: 100px
+}
+
+.spainTitle{
+    position: absolute ;
+    font-size: 200px;
+    color: #AC6D5B;
+    color: darkorange; 
+    position: relative; 
+    font-size: 100px ; 
+    margin-top: 100px
+}
+
+.left-div{
+    float: left; 
+    width: 30%;  
+    background-color: white
+}
+
+.right-div{
+    float: right;
+     width: 70% ;  
+     background-color: white;
 }
