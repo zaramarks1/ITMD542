@@ -22,7 +22,11 @@ If it is intalled, you can test using :
 
 `node -v`
 
-## Step 2 - Install Express/Express Generator 
+## Step 2 - Create or clone to project
+
+Here you will have two options, you can either clone a repository or create a new project. I will give instructions for both
+
+### Create 
 
 Go to the folder you wish to create your project
 
@@ -34,16 +38,25 @@ To install Express Generator:
 
 `npm install express-generator@latest`
 
-## Step 3 - Create your project 
-
-This would only be used if you were to create a new project on your own.  Since you will be cloning my project you can skip this Step.
-
-I just added just in case you wanted to learn how to create a project of your own!
-
+Create your project and move to inside the project:
 ``` 
 npx express-generator --view=pug myapp
 cd myapp
 ```
+
+### Clone this project
+
+Go to the folder you wish to clone this project and run the following command:
+
+`git clone git@github.com:zaramarks1/ITMD542.git`
+
+Also this is lab 2, so go to lab 2 :
+
+`cd ITMD542/lab2`
+
+### For both
+
+Since we are inside the folder with the project:
 
 Lets also download npm-check-updates so we can see if we need to have any updates:
 
@@ -57,12 +70,22 @@ If there is, you can run the following command:
 
 `npm install`
 
-## Step 4 
+And now we can start our project using :
 
-This would only be used if you were to create a new project on your own.  Since you will be cloning my project you can skip this Step.
+`npm start`
 
-I just added just in case you wanted to learn how to create a project of your own!
+If you go to **http://localhost:3000/** you should be seing node express welcome page or the contact page.
+
 
 # Insights and Results
+
+## Problems
+ 1. Installation :
+    * I had some problems with the version of  some dependencies so I kept getting critical vulnerabilities, solved with (`npm audit fix --force) 
+    * When I ran the express-generator there was an error while creating the project (But solved updating some dependencies and changing the name of the project to myapp):
+
+    ![error-gen](images/generator-error.png)
+
+    
 
 # References (if needed) 
