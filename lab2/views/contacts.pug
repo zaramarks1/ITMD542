@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a(href='/contacts/add') Add a Contact
+  hr
+  if contacts.length > 0
+    #todos-wrapper 
+      ul.contacts-list 
+        each val in contacts 
+          li(data-todoid=val.id) 
+            //- a(href=`/contacts/${val.id}`)= val.text
+            h2 = val.firstName
+
