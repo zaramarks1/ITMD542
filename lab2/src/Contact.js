@@ -9,4 +9,7 @@ class Contact{
         this.notes = notes;
         this.date =date;
     }
+
 }
+
+module.exports = Contact;

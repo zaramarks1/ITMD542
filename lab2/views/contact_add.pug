@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p Use the form below to add a contact.
+  hr
+  if msg 
+    p= msg
+  form(method='POST', action='/contact/add')
+    label First Name
+    |
+    input(type='text', name='firstName') 
+    br
+    label Last Name
+    |
+    input(type='text', name='lastName') 
+    br
+    label Email
+    |
+    input(type='text', name='email') 
+    br
+    label Notes
+    |
+    input(type='text', name='notes') 
+    br
+    button(type='submit') Create a Contact 
+    | 
+    a(href='/contact') Cancel
