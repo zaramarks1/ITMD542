@@ -5,13 +5,15 @@
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 20px;
+  text-align: center;
   display:inline;
   padding:5px;
   border-radius: 15px;
   border-color: #6D41F3;
   border-style: solid;
   transition-duration: .4s;
-  margin: 5px;
+  margin: 20px;
+
 }
 
 .aStyle:hover{
@@ -34,6 +36,22 @@ h1 {
   font-style: normal;
   font-size: 50px;
   line-height: 20px;
+}
+
+h2{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 20px;
+  color:#8C69F4;
+}
+
+h3{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 25px;
+  line-height: 20px;
+  color:rgba(42, 40, 40, 0.839);
 }
 
 
@@ -150,4 +168,10 @@ ul{
 .error:hover{
   color: #b20606 ;
   background-color: #df0c0c4f;
+}
+
+.index{
+  padding: 20px;
+  display: flex;
+
 }

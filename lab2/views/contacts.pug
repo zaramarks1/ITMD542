@@ -3,7 +3,8 @@ extends layout
 block content
   div(class = 'divTitle')
     h1(class='title')= title
-  a(class ='aStyle',href='/contacts/add') Add a Contact
+  div(class='divDisplay')
+    a(class ='aStyle',href='/contacts/add') Add a Contact
 
   if contacts.length > 0
       ul.contacts-list 
@@ -13,5 +14,4 @@ block content
             a(class = 'listTitle', href=`/contacts/${val.id}`) First name :  #{val.firstName}
             p Last name :  #{val.lastName}
             p Email:  #{val.email}
-            p Date:  #{val.date}
 
