@@ -3,8 +3,10 @@ var express = require('express');
 var router = express.Router();
 
 const contactRepo = require('../src/contactsFileRepo');
-
 const Contact = require('../src/Contact')
+const { body } = require('express-validator');
+const { validationResult } = require('express-validator');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,12 +20,20 @@ router.get('/add', function(req, res, next) {
 });
 
 /* POST create Contact. */
-router.post('/add', function(req, res, next) {
+router.post('/add',  
+body('firstName').trim().notEmpty().withMessage('First name can not be empty!'), 
+body('email').trim().notEmpty().withMessage('Email can not be empty!')
+  .isEmail().withMessage('Email must be a valid email address!'), 
+  function(req, res, next) {
 
-    const newContact = new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes, ''); 
-
-    contactsRepo.create(newContact);
-    res.redirect('/contact');
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      res.render('contact_add', { title: 'Add a contact', msg: result.array() });
+    }else{
+      const newContact = new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes, ''); 
+      contactRepo.create(newContact);
+      res.redirect('/contact');
+    }
 });
 
 /* GET single contact. */
@@ -50,6 +60,20 @@ router.post('/:uuid/edit', function(req, res, next) {
 });
 
 /* Get delete contact page */
+router.get('/:uuid/delete', function(req, res, next){
+  const contact = contactRepo.findById(req.params.uuid);
+  res.render('contact_delete', { title: 'contact', contact : contact });
+});
+
+/* POST delete Contact */
+router.post('/:uuid/delete', function(req, res, next) {
+
+  //const contact = contactRepo.findById(req.params.uuid);
+
+  contactRepo.deleteById(req.params.uuid);
+  res.redirect('/contact');
+});
+
 
 
 

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Are you sure you want to delete the following Contact?
+  p= contact.firstName
+  p= contact.lastName
+  hr
+  form(method='POST', action=`/contact/${contact.id}/delete`)
+    button(type='submit') Confirm Delete 
+    | 
+    a(href=`/contact/${contact.id}`) Cancel

@@ -5,7 +5,9 @@ block content
   p Use the form below to add a contact.
   hr
   if msg 
-    p= msg
+    ul
+      each val in msg 
+        li= val.msg
   form(method='POST', action='/contact/add')
     label First Name
     |
