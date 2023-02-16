@@ -1,12 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Are you sure you want to delete the following Contact?
-  p= contact.firstName
-  p= contact.lastName
-  hr
-  form(method='POST', action=`/contacts/${contact.id}/delete`)
-    button(type='submit') Confirm Delete 
-    | 
-    a(href=`/contacts/${contact.id}`) Cancel
+  div(class = 'divTitle')
+    h1(class='title')= title
+  div(class = 'divDisplay')
+
+    p First name :  #{contact.firstName}
+    p Last name :  #{contact.lasttName}
+    p Email:  #{contact.email}
+    p Notes: #{contact.notes}
+    p Date:  #{contact.date}
+    form(method='POST', action=`/contacts/${contact.id}/delete`)
+      button(type='submit') Confirm Delete 
+      | 
+      a(class ='aStyle',href=`/contacts/${contact.id}`) Cancel

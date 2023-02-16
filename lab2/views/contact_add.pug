@@ -1,30 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Use the form below to add a contact.
-  hr
+  div(class = 'divTitle')
+    h1(class='title')= title
+    p Use the form below to add a contact.
   if msg 
     ul
       each val in msg 
-        li= val.msg
-  form(method='POST', action='/contacts/add')
-    label First Name
-    |
-    input(type='text', name='firstName') 
-    br
-    label Last Name
-    |
-    input(type='text', name='lastName') 
-    br
-    label Email
-    |
-    input(type='text', name='email') 
-    br
-    label Notes
-    |
-    input(type='text', name='notes') 
-    br
-    button(type='submit') Create a Contact 
-    | 
-    a(href='/contacts') Cancel
+        li(class = 'error')= val.msg
+  div(class = 'divDisplay')
+    form(method='POST', action='/contacts/add')
+      
+      label(class = 'inputLabel') First Name
+      |
+      input(type='text', name='firstName') 
+      br
+
+      label(class = 'inputLabel') Last Name
+      |
+      input(type='text', name='lastName') 
+      br
+
+      label(class = 'inputLabel') Email
+      |
+      input(type='text', name='email') 
+      br
+
+      label(class = 'inputLabel') Notes
+      |
+      input(type='text', name='notes') 
+      br
+
+      button(type='submit', class = 'primaryButton') Create a Contact 
+      | 
+      a(class ='aStyle',href='/contacts') Cancel
