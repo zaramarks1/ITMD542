@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p Use the form below to edit the contact.
+  hr
+  if msg 
+    p= msg
+  form(method='POST', action=`/contact/${contact.id}/edit`)
+    label First Name
+    |
+    input(type='text', name='firstName', value = contact.firstName) 
+    br
+    label Last Name
+    |
+    input(type='text', name='lastName', value = contact.lastName) 
+    br
+    label Email
+    |
+    input(type='text', name='email', value= contact.email) 
+    br
+    label Notes
+    |
+    input(type='text', name='notes', value = contact.notes) 
+    br
+    button(type='submit') Change Contact 
+    | 
+    a(href='/contact') Cancel
