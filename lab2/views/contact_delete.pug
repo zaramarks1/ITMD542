@@ -6,7 +6,7 @@ block content
   p= contact.firstName
   p= contact.lastName
   hr
-  form(method='POST', action=`/contact/${contact.id}/delete`)
+  form(method='POST', action=`/contacts/${contact.id}/delete`)
     button(type='submit') Confirm Delete 
     | 
-    a(href=`/contact/${contact.id}`) Cancel
+    a(href=`/contacts/${contact.id}`) Cancel

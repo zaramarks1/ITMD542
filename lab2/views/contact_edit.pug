@@ -6,7 +6,7 @@ block content
   hr
   if msg 
     p= msg
-  form(method='POST', action=`/contact/${contact.id}/edit`)
+  form(method='POST', action=`/contacts/${contact.id}/edit`)
     label First Name
     |
     input(type='text', name='firstName', value = contact.firstName) 
@@ -25,4 +25,4 @@ block content
     br
     button(type='submit') Change Contact 
     | 
-    a(href=`/contact/${contact.id}`) Cancel
+    a(href=`/contacts/${contact.id}`) Cancel

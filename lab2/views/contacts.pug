@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  a(href='/contact/add') Add a Contact
+  a(href='/contacts/add') Add a Contact
   hr
   if contacts.length > 0
     #todos-wrapper 
@@ -11,9 +11,7 @@ block content
         each val in contacts 
           li(data-todoid=val.id) 
             //- a(href=`/contacts/${val.id}`)= val.text
-            a(href=`/contact/${val.id}`) First name :  #{val.firstName}
+            a(href=`/contacts/${val.id}`) First name :  #{val.firstName}
             p Last name :  #{val.lastName}
             p Email:  #{val.email}
-            p Notes :  #{val.notes}
-            p Date :  #{val.date}
 

@@ -71,7 +71,7 @@ If there is, you can run the following command:
 `npm install`
 
 And now we can start our project using :
-s
+
 `npm start`
 
 If you go to **http://localhost:3000/** you should be seing node express welcome page or the contact page.

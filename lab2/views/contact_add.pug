@@ -8,7 +8,7 @@ block content
     ul
       each val in msg 
         li= val.msg
-  form(method='POST', action='/contact/add')
+  form(method='POST', action='/contacts/add')
     label First Name
     |
     input(type='text', name='firstName') 
@@ -27,4 +27,4 @@ block content
     br
     button(type='submit') Create a Contact 
     | 
-    a(href='/contact') Cancel
+    a(href='/contacts') Cancel
