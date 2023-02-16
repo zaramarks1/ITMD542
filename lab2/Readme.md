@@ -80,12 +80,14 @@ If you go to **http://localhost:3000/** you should be seing node express welcome
 # Insights and Results
 
 ## Problems
- 1. Installation :
+
+1. Installation :
     * I had some problems with the version of  some dependencies so I kept getting critical vulnerabilities, solved with (`npm audit fix --force) 
     * When I ran the express-generator there was an error while creating the project (But solved updating some dependencies and changing the name of the project to myapp):
 
     ![error-gen](images/generator-error.png)
-
+2. Naming Conventions;
+    * I accidently named everything as Contact instead of Contacts. So I had to refactor my code to respect the naming conventions. 
     
 
 # References (if needed) 

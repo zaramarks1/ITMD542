@@ -11,7 +11,7 @@ const loadData = () => {
     //const jsonData = fs.readFileSync('data/todos.json');
     const contactsArray = JSON.parse(jsonData);
     contactsArray.forEach(element => {
-      const aContact = new Contact(element[1].id, element[1].firstName, element[1].lastName, element[1].email, element[1].notes,element[1].date);
+      const aContact = new Contact(element[1].id, element[1].firstName, element[1].lastName, element[1].email, element[1].notes,new Date(element[1].date));
       db.set(aContact.id, aContact);
     });
     console.log(db);

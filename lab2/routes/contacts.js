@@ -3,78 +3,40 @@ var express = require('express');
 var router = express.Router();
 
 const contactsRepo = require('../src/contactsFileRepo');
-const Contact = require('../src/Contact')
 const { body } = require('express-validator');
-const { validationResult } = require('express-validator');
+const contactsController = require('../controller/contactsController')
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  const data = contactsRepo.findAll();
-  res.render('contacts', { title: 'contacts', contacts : data });
-});
+router.get('/', contactsController.contacts_list);
 
-/* GET Contact page  */
-router.get('/add', function(req, res, next) {
-  res.render('contact_add', { title: 'Add a contact' });
-});
+/* GET  add Contact page  */
+router.get('/add', contactsController.contacts_add_get);
 
 /* POST create Contact. */
 router.post('/add',  
 body('firstName').trim().notEmpty().withMessage('First name can not be empty!'), 
 body('lastName').trim().notEmpty().withMessage('Last name can not be empty!'), 
 body('email').isEmail().withMessage('Email must be a valid email address!'), 
-  function(req, res, next) {
-
-    const result = validationResult(req);
-    if (!result.isEmpty()) {
-      res.render('contact_add', { title: 'Add a contact', msg: result.array() });
-    }else{
-      const newContact = new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes, ''); 
-      contactsRepo.create(newContact);
-      res.redirect('/contacts');
-    }
-});
+contactsController.contacts_add_post);
 
 /* GET single contact. */
-router.get('/:uuid', function(req, res, next) {
-  const data = contactsRepo.findById(req.params.uuid);
-  res.render('contact', { title: 'contact', contact : data });
-});
+router.get('/:uuid', contactsController.contacts_single);
 
 /* GET edit page  */
-router.get('/:uuid/edit', function(req, res, next){
-  const contact = contactsRepo.findById(req.params.uuid);
-  res.render('contact_edit', { title: 'contact', contact : contact });
-});
+router.get('/:uuid/edit', contactsController.contacts_edit_get);
 
 /* POST edit Contact */
-router.post('/:uuid/edit', function(req, res, next) {
-
-  //const contact = contactRepo.findById(req.params.uuid);
-
-  const newContact = new Contact(req.params.uuid, req.body.firstName, req.body.lastName, req.body.email, req.body.notes, ''); 
-
-  contactsRepo.update(newContact);
-  res.redirect('/contacts');
-});
+router.post('/:uuid/edit', 
+body('firstName').trim().notEmpty().withMessage('First name can not be empty!'), 
+body('lastName').trim().notEmpty().withMessage('Last name can not be empty!'), 
+body('email').isEmail().withMessage('Email must be a valid email address!'), 
+contactsController.contacts_edit_post);
 
 /* Get delete contact page */
-router.get('/:uuid/delete', function(req, res, next){
-  const contact = contactsRepo.findById(req.params.uuid);
-  res.render('contact_delete', { title: 'contact', contact : contact });
-});
+router.get('/:uuid/delete', contactsController.contacts_delete_get);
 
 /* POST delete Contact */
-router.post('/:uuid/delete', function(req, res, next) {
-
-  //const contact = contactRepo.findById(req.params.uuid);
-
-  contactsRepo.deleteById(req.params.uuid);
-  res.redirect('/contacts');
-});
-
-
-
+router.post('/:uuid/delete', contactsController.contacts_delete_post);
 
 module.exports = router;
