@@ -89,5 +89,20 @@ If you go to **http://localhost:3000/** you should be seing node express welcome
 2. Naming Conventions;
     * I accidently named everything as Contact instead of Contacts. So I had to refactor my code to respect the naming conventions. 
     
+3. Date 
+    * Since the repository when initiated reads everything as a String, the date showing was the International in the beggining. But once I modified a Contact the date would be shown in the local time. 
+    To solve this issue i converted the string as a date when reading the data in the "database".
 
-# References (if needed) 
+## Results
+    
+This is my first time working with node/express and there are many things I learned and liked about it:
+
+* Its very easy and fast to start and stop the server.
+* Adding the dependencies is also very easy.
+* you can make changes to the page layout without having to restart the server. 
+
+What I do not like it (from what we have learned so far):
+    
+* We cannot receive objects from the form. We have to get each field that we want. It would be nice to send an object to be populated to the form and we could receive it as an object. 
+* The routing definition being on the app.js I do not think is super practical. It would be nicer to be able to define it within the router.js page. 
+* Having to do the validation in each endpoint. It would be better to have the  validators in our object instead of in each of our endpoints. If we could create an object with validors and if Express could return for us if this object is valid or not without having to do repetitive work.
