@@ -6,6 +6,8 @@ Email: zmarks1@hawk.iit.edu
 
 # Project Description 
 
+This project is meant for us to learn the basics of Node Express. We created a simple full stack system to create/edit/delete/update contacts. 
+
 # Development Environment 
 
 Node JS Version : 16.17.0 
