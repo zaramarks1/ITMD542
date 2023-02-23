@@ -36,7 +36,7 @@ const repo = {
     console.log(`rows affected: ${info.changes}`);
   },
   update: (contact) => { 
-    const stmt = db.prepare("UPDATE contacts SET (firstName, lastName, email, notes, date) VALUES (?, ? , ?, ?, ?) WHERE id = ?");
+    const stmt = db.prepare("UPDATE contacts SET firstName = ? , lastName = ? , email = ? , notes = ? , date = ?  WHERE id = ?");
     const info = stmt.run(contact.firstName, contact.lastName, contact.email, contact.notes, new Date().toString(), contact.id);
     console.log(`rows affected: ${info.changes}`);
   },
