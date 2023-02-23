@@ -1,15 +1,17 @@
 const contactsRepo = require('../src/contactsFileRepo');
+const contactsSQLRepo = require('../src/contactsSQLiteRepo');
 const Contact = require('../src/Contact')
 const { validationResult } = require('express-validator');
 
 /* GET contacts . */
 exports.contacts_list = function(req, res, next) {
-    const data = contactsRepo.findAll();
+    const data = contactsSQLRepo.findAll();
     res.render('contacts', { title: 'Contact List Page', contacts : data });
 };
 
 exports.contacts_add_get = function(req, res, next){
-    res.render('contact_add', { title: 'Add a contact' });
+    const data = new Date().toDateString()
+    res.render('contact_add', { title: data});
 };
 
 exports.contacts_add_post = function(req, res, next){
@@ -18,13 +20,13 @@ exports.contacts_add_post = function(req, res, next){
       res.render('contact_add', { title: 'Add a contact', msg: result.array() });
     }else{
       const newContact = new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes, ''); 
-      contactsRepo.create(newContact);
+      contactsSQLRepo.create(newContact);
       res.redirect('/contacts');
     }
 };
 
 exports.contacts_single = function(req, res, next){
-    const data = contactsRepo.findById(req.params.uuid);
+    const data = contactsSQLRepo.findById(req.params.uuid);
     res.render('contact', { title: 'Contact Information', contact : data });
 };
 
