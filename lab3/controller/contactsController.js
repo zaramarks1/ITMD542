@@ -10,8 +10,7 @@ exports.contacts_list = function(req, res, next) {
 };
 
 exports.contacts_add_get = function(req, res, next){
-    const data = new Date().toDateString()
-    res.render('contact_add', { title: data});
+    res.render('contact_add', { title: 'Add a contact'});
 };
 
 exports.contacts_add_post = function(req, res, next){
