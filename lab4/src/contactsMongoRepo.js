@@ -31,7 +31,7 @@ const repo = {
       '_id': new ObjectId(uuid)
     };
     const doc = await contactsColl.findOne(filter);
-    return new Todo(doc._id.toString(), doc.text);
+    return new Contact(doc._id.toString(), doc.firstName, doc.lastName, doc.email, doc.notes,new Date(doc.date).toString());
   },
 
   create: async (contact) => {
@@ -62,7 +62,7 @@ const repo = {
   update: async (contact) => { 
     const contactsColl = client.db('zarademo').collection('contacts');
     const filter = {
-      '_id': new ObjectId(todo.id)
+      '_id': new ObjectId(contact.id)
     };
     const updateDoc = {
       $set: {
