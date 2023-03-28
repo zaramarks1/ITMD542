@@ -1,13 +1,17 @@
 const { MongoClient, ObjectId } = require('mongodb');
-const Contact = require('./Contact');
+const Contact = require('../src/Contact')
 
-//const url = 'mongodb://localhost:27017';
+
 const url = process.env.MONGODB_URL;
+// const client = new MongoClient(`mongodb+srv://${process.env.USR}:${process.env.PASS}@zarademo.2tuvbvy.mongodb.net/?retryWrites=true&w=majority`);
 const client = new MongoClient(url);
+// https://cloud.mongodb.com/v2/642342d7fa9bbf3de56df0be#/clusters
+
 
 async function run() {
   await client.connect();
-  return 'Connected to the MongoDB server...';
+ 
+ return 'Connected to the MongoDB server...';
 }
 
 run()
@@ -39,7 +43,7 @@ const repo = {
         lastName: contact.lastName, 
         email : contact.email, 
         notes: contact.notes,
-        date: new Date(contact.date).toString()
+        date: new Date().toString()
     };
 
     const contactsColl = client.db('zarademo').collection('contacts');
