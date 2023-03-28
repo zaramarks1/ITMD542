@@ -6,7 +6,7 @@ Email: zmarks1@hawk.iit.edu
 
 # Project Description 
 
-This project is meant for us to learn how to create a Repository using MySQLite. We adadped out lab2 to use a .sqlite file.
+This project is meant for us to learn how to create a Repository using MongoDB. 
 
 # Development Environment 
 
@@ -52,9 +52,9 @@ Go to the folder you wish to clone this project and run the following command:
 
 `git clone git@github.com:zaramarks1/ITMD542.git`
 
-Also this is lab 3, so go to lab 3 :
+Also this is lab 4, so go to lab 3 :
 
-`cd ITMD542/lab3`
+`cd ITMD542/lab4`
 
 ### For both
 
